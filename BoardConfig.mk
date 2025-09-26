@@ -1,0 +1,47 @@
+# Board configuration for Khadas Edge-V Pro (RK3399)
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_VARIANT := cortex-a72
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := rk3399
+
+# Kernel
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.console=ttyFIQ0 androidboot.hardware=rk3399 androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_USES_UNCOMPRESSED_BOOT := false
+
+# CRITICAL: This path MUST match the path in your local_manifest.xml
+TARGET_KERNEL_SOURCE := kernel/khadas/edge_v_pro
+TARGET_KERNEL_CONFIG := rockchip_defconfig
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 4096
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 7373854720 # Size dynamically calculated at build time usually
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_HAS_LARGE_FILESYSTEM := true
+
+# Graphics
+TARGET_USES_HWC2 := true
+BOARD_USES_DRM_HWCOMPOSER := true
+BOARD_MALI_ARM_NN := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_DIR)/rootdir/etc/fstab.rk3036
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"

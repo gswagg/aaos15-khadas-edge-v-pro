@@ -1,0 +1,7 @@
+// Soong build configuration for Khadas Edge-V Pro
+soong_namespace {
+    imports: [
+        "hardware/rockchip",
+        "vendor/rockchip",
+    ],
+}
