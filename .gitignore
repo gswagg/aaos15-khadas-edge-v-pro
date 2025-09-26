@@ -1,0 +1,27 @@
+# AOSP build outputs and intermediates that might appear locally
+*.img
+*.zip
+*.o
+*.ko
+*.dtb
+*.dtbo
+out/
+gen/
+
+# Temporary files from editors
+*.tmp
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.idea/
+.vscode/
+
+# NOTE: Proprietary blobs are best handled in a separate repository
+# or via a download script, not in the public device tree.
+# vendor/proprietary/
